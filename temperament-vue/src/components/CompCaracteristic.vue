@@ -4,15 +4,23 @@ import { ref, defineProps, defineEmits } from 'vue';
 const props = defineProps({
   traitText: String,
   traitId: Number,
+  disable: {
+    type: Boolean,
+    default: false
+  },
+  initialValue: {
+    type: Number,
+    default: null
+  }
 });
 
 const emit = defineEmits(['update-value']);
 
-const selectedValue = ref(null);
+const selectedValue = ref(props.initialValue);
 
 const selectValue = (value) => {
   selectedValue.value = value;
-  emit('update-value', props.traitId, value);
+  emit('update-value', props.traitId, props.traitText, value);
 };
 </script>
 
@@ -58,13 +66,15 @@ const selectValue = (value) => {
 .selection-box {
   display: flex;
   border: 1px solid #ccc;
+  grid-template-columns: repeat(2, 1fr);
   border-radius: 5px;
   overflow: hidden;
 }
 
 .option {
-  width: 40px; /* Tamaño del cuadro */
-  height: 40px;
+  /* Tamaño del cuadro */
+  width: 30px; 
+  height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -93,4 +103,16 @@ const selectValue = (value) => {
   font-size: 1.1em;
   white-space: nowrap; /* Evita que el texto se parta en varias líneas */
 }
+
+.trait-item.disabled {
+  /* Estilos para el contenedor cuando está deshabilitado */
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.option.disabled-option {
+  cursor: not-allowed;
+  /* Opcional: Desactiva el hover */
+  pointer-events: none;
+}
+
 </style>

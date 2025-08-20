@@ -12,6 +12,10 @@ const goBack = () => {
   emit('back');
 }
 
+const updateValueinsttt = (traitId, traitText, value) => {
+  console.log('Valor actualizado:', traitId, traitText, value);
+}
+
 </script>
 
 <template>
@@ -34,12 +38,14 @@ const goBack = () => {
         </ul>
         
       </div>
-      <div>
+      <div class="example-container">
         <h2>Ejemplo</h2>
-        <CompCaracteristic traitText="Amable" traitId="1" />
-        <CompCaracteristic traitText="Sincero" traitId="2" />
-        <CompCaracteristic traitText="Tierno" traitId="3" />
-        <CompCaracteristic traitText="Sociable" traitId="4" />
+        <div>
+          <CompCaracteristic traitText="Audaz" v-bind:traitId="1" v-bind:disable="false" v-bind:initialValue="4"/>
+          <CompCaracteristic traitText="Espontáneo" v-bind:traitId="2" v-bind:disable="true" v-bind:initialValue="3"/>
+          <CompCaracteristic traitText="Estable" v-bind:traitId="3" v-bind:disable="true" v-bind:initialValue="2"/>
+          <CompCaracteristic traitText="Organizado" v-bind:traitId="4" v-bind:disable="true" v-bind:initialValue="1"/>
+        </div>
       </div>
     </div>
 
@@ -58,6 +64,7 @@ const goBack = () => {
 h3 {
     text-align: left;
     font-weight: bold;
+    margin-left: 1rem;
 }
 /* Estilos para el contenedor principal */
 .container {
@@ -72,6 +79,7 @@ h1 {
   font-size: 3.5rem; /* Tamaño de fuente para el título */
   margin-bottom: 20px;
 }
+
 
 /* Contenedor principal del texto e imagen */
 .statement-wrapper {

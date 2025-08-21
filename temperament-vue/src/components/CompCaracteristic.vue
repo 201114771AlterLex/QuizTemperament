@@ -1,5 +1,5 @@
 <script setup>
-import { ref, defineProps, defineEmits } from 'vue';
+import { ref} from 'vue';
 
 const props = defineProps({
   traitText: String,
@@ -19,37 +19,30 @@ const emit = defineEmits(['update-value']);
 const selectedValue = ref(props.initialValue);
 
 const selectValue = (value) => {
+
+  if(props.disable)
+  { 
+    return;
+  }
+
   selectedValue.value = value;
   emit('update-value', props.traitId, props.traitText, value);
 };
+
+const isDisabled = () => props.disable;
+
 </script>
 
 <template>
-  <div class="trait-item">
+  <div class="trait-item" :class="{ 'disabled': isDisabled() }">
     <div class="selection-box">
-      <div 
+     <div 
+        v-for="n in 4" 
+        :key="n" 
         class="option" 
-        :class="{ 'selected': selectedValue === 1 }" 
-        @click="selectValue(1)">
-        1
-      </div>
-      <div 
-        class="option" 
-        :class="{ 'selected': selectedValue === 2 }" 
-        @click="selectValue(2)">
-        2
-      </div>
-      <div 
-        class="option" 
-        :class="{ 'selected': selectedValue === 3 }" 
-        @click="selectValue(3)">
-        3
-      </div>
-      <div 
-        class="option" 
-        :class="{ 'selected': selectedValue === 4 }" 
-        @click="selectValue(4)">
-        4
+        :class="{ 'selected': selectedValue === n}" 
+        @click="selectValue(n)">
+        {{ n }}
       </div>
     </div>
     <span class="trait-text">{{ traitText }}</span>
@@ -113,6 +106,28 @@ const selectValue = (value) => {
   cursor: not-allowed;
   /* Opcional: Desactiva el hover */
   pointer-events: none;
+}
+
+/* El contenedor principal, cuando está deshabilitado */
+.trait-item.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  /* Aquí es donde se deshabilitan los eventos para todas las opciones */
+  pointer-events: none;
+}
+
+/* Las opciones dentro de un contenedor deshabilitado */
+.trait-item.disabled .option {
+  cursor: not-allowed;
+  background-color: #f0f0f0;
+  color: #a0a0a0;
+  /* Elimina el efecto de hover */
+  pointer-events: none;
+}
+
+.trait-item.disabled .option.selected {
+  background-color: #3e73d3; /* Mantiene el color azul de la selección */
+  color: white; /* Mantiene el color blanco del texto */
 }
 
 </style>

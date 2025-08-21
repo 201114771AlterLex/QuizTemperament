@@ -1,5 +1,4 @@
 <script setup>
-import { defineEmits } from 'vue';
 import CompCaracteristic from './CompCaracteristic.vue';
 
 const emit = defineEmits(['continue', 'back']);
@@ -33,24 +32,27 @@ const updateValueinsttt = (traitId, traitText, value) => {
         </p>
         <h3>Instrucciones:</h3>       
          <ul>
-          <li>Califica las palabras, de cada fila horizontal, en una escala de 1 a 4. La calificación dada, debe indicar qué tanto te describe cada palabra, asignando <b>4</b> a la que más te describe de todas ellas y <b>1</b> a la que menos</li>
-          <li>En una línea horizontal no puede haber dos palabras con la misma calificación. A continuación aparece un ejemplo</li>
+          <li>Califica las palabras, en una escala de 1 a 4. La calificación dada, debe indicar qué tanto te describe cada palabra, asignando <b>4</b> a la que más te describe de todas ellas y <b>1</b> a la que menos</li>
+          <li>En un grupo de cuatro palabras, no puede haber dos palabras con la misma calificación. A continuación aparece un ejemplo</li>
         </ul>
         
       </div>
       <div class="example-container">
         <h2>Ejemplo</h2>
         <div>
-          <CompCaracteristic traitText="Audaz" v-bind:traitId="1" v-bind:disable="false" v-bind:initialValue="4"/>
-          <CompCaracteristic traitText="Espontáneo" v-bind:traitId="2" v-bind:disable="true" v-bind:initialValue="3"/>
-          <CompCaracteristic traitText="Estable" v-bind:traitId="3" v-bind:disable="true" v-bind:initialValue="2"/>
-          <CompCaracteristic traitText="Organizado" v-bind:traitId="4" v-bind:disable="true" v-bind:initialValue="1"/>
+          <CompCaracteristic traitText="Audaz" v-bind:traitId="1" v-bind:disable="true" v-bind:initialValue="2"/>
+          <CompCaracteristic traitText="Espontáneo" v-bind:traitId="2" v-bind:disable="true" v-bind:initialValue="1"/>
+          <CompCaracteristic traitText="Estable" v-bind:traitId="3" v-bind:disable="true" v-bind:initialValue="4"/>
+          <CompCaracteristic traitText="Organizado" v-bind:traitId="4" v-bind:disable="true" v-bind:initialValue="3"/>
         </div>
       </div>
     </div>
 
-    <button @click="goBack">Atras</button>
-    <button @click="goNext">Comenzar Cuestionario</button>
+    <div class="button-container">
+      <button @click="goBack">Atras</button>
+      <button @click="goNext">Comenzar Cuestionario</button>
+    </div>
+    
   </div>
 </template>
 
@@ -95,10 +97,28 @@ h1 {
 }
 
 /* Estilo para el párrafo */
-.text-content p li {
-  line-height: 1.3rem; /* Mejora la legibilidad del texto */
+.text-content p {
+  line-height: 1.8rem; /* Mejora la legibilidad del texto */
   font-size: 1.4rem; /* Tamaño de fuente base */
 }
+
+.text-content ul {
+  font-size: 1.2rem;
+}
+
+.example-container {
+  margin: 0 auto;
+  border: 10px solid #ccc;
+  border-radius: 3rem;
+  padding: 2rem;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-around; /* Distribuye los botones a los extremos */
+  margin-top: 20px; /* Espacio entre el contenido y los botones */
+}
+
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
@@ -110,13 +130,15 @@ h1 {
     align-items: flex-start; /* Alinea los elementos en la parte superior */
   }
 
-  .text-content, .image-content {
-    flex: 1; /* Otorga un ancho flexible a ambos contenedores */
-  }
 
   /* Ajusta el tamaño de la fuente para que el texto sea más grande en computadoras */
-  .text-content p {
+.text-content p ul{
     font-size: 1.6rem;
   }
+
+.text-content ul {
+  font-size: 1.4rem;
+}
+
 }
 </style>

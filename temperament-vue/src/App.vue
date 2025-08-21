@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 import DescriptionView from './components/DescriptionView.vue';
 import InstructionView from './components/InstructionView.vue';
-
+import Quiz from './components/Quiz.vue';
 
 const currentView= ref('description');
 
@@ -20,8 +20,13 @@ const changeView=(viewName) => {
   <InstructionView 
     v-if="currentView === 'instruction'" 
     @back="changeView('description')"
-    @continue="changeView('questionnaire')"
+    @continue="changeView('quiz')"
   />
+  <Quiz
+    v-if="currentView === 'quiz'"
+    @back="changeView('instruction')"
+  />
+
 </template>
 
 <style scoped>

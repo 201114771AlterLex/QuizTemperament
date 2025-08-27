@@ -33,17 +33,29 @@ const updateValueinsttt = (traitId, traitText, value) => {
         <h3>Instrucciones:</h3>       
          <ul>
           <li>Califica las palabras, en una escala de 1 a 4. La calificación dada, debe indicar qué tanto te describe cada palabra, asignando <b>4</b> a la que más te describe de todas ellas y <b>1</b> a la que menos</li>
-          <li>En un grupo de cuatro palabras, no puede haber dos palabras con la misma calificación. A continuación aparece un ejemplo</li>
+          <li>En un grupo de cuatro palabras, no puede haber dos palabras con la misma calificación. A continuación aparece ejemplos de correcto e incorrecto</li>
         </ul>
         
       </div>
-      <div class="example-container">
-        <h2>Ejemplo</h2>
-        <div>
-          <CompCaracteristic traitText="Audaz" v-bind:traitId="1" v-bind:disable="true" v-bind:initialValue="2"/>
-          <CompCaracteristic traitText="Espontáneo" v-bind:traitId="2" v-bind:disable="true" v-bind:initialValue="1"/>
-          <CompCaracteristic traitText="Estable" v-bind:traitId="3" v-bind:disable="true" v-bind:initialValue="4"/>
-          <CompCaracteristic traitText="Organizado" v-bind:traitId="4" v-bind:disable="true" v-bind:initialValue="3"/>
+      <div class="examples">
+        <div class="example-container">
+          <h2>Ejemplo Correcto</h2>
+          <div>
+            <CompCaracteristic traitText="Audaz" v-bind:traitId="1" v-bind:disable="true" v-bind:initialValue="2"/>
+            <CompCaracteristic traitText="Espontáneo" v-bind:traitId="2" v-bind:disable="true" v-bind:initialValue="1"/>
+            <CompCaracteristic traitText="Estable" v-bind:traitId="3" v-bind:disable="true" v-bind:initialValue="4"/>
+            <CompCaracteristic traitText="Organizado" v-bind:traitId="4" v-bind:disable="true" v-bind:initialValue="3"/>
+          </div>
+        </div>
+
+        <div class="example-container">
+          <h2>Ejemplo Incorrecto</h2>
+          <div>
+            <CompCaracteristic traitText="Audaz" v-bind:traitId="1" v-bind:disable="true" v-bind:initialValue="2"/>
+            <CompCaracteristic traitText="Espontáneo" v-bind:traitId="2" v-bind:disable="true" v-bind:initialValue="2"/>
+            <CompCaracteristic traitText="Estable" v-bind:traitId="3" v-bind:disable="true" v-bind:initialValue="4"/>
+            <CompCaracteristic traitText="Organizado" v-bind:traitId="4" v-bind:disable="true" v-bind:initialValue="3"/>
+          </div>
         </div>
       </div>
     </div>
@@ -119,6 +131,12 @@ h1 {
   margin-top: 20px; /* Espacio entre el contenido y los botones */
 }
 
+.examples{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin: 0 auto;
+}
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 

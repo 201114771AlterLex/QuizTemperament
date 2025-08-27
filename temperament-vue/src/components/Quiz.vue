@@ -14,14 +14,30 @@ const goBack = () => {
 const question= ref(0)
 
 const Totales = ref([0,0,0,0])
+const Sumas = ref([0,0,0,0])
+
+const enableNextQuestion = ref(false);
+const enableResult = ref(false);
+
 
 const handleUpdate = ({ values, enable }) => {
   console.log('Valores en el padre:', values);
   console.log('Enable en el padre:', enable);
+  enableNextQuestion.value = enable;
+  if (enable) {
+    Sumas.value = values;
+    console.log('Sumas actualizadas:', Sumas.value);
+  }
 };
 
 const goNextQuestion = () => {
+  Totales.value = Totales.value.map((total, index) => total + Sumas.value[index]);
+  console.log('Totales actualizados:', Totales.value);
+  enableNextQuestion.value = false;
   question.value++;
+  if (question.value > 10) {
+    enableResult.value = true;
+  }
 }
 
 </script>
@@ -40,12 +56,24 @@ const goNextQuestion = () => {
               @update="handleUpdate"
             />
 
+            <GroupCaracteristic
+              v-if="question === 1"
+              v-bind:names="['Agresivo', 'Emotivo', 'Complaciente', 'Constante']"
+              @update="handleUpdate"
+            />
+
+            <GroupCaracteristic
+              v-if="question === 2"
+              v-bind:names="['Directo', 'Animoso', 'Agradable', 'Acertado']"
+              @update="handleUpdate"
+            />
+
 
         </div>
         <div class="button-container">
             <button @click="goBack">Atras</button>
-            <button @click="goNext">Siguiente Pregunta</button>
-            <button @click="goNextQuestion">Siguiente Pregunta</button>
+            <button @click="goNextQuestion" :disabled="!enableNextQuestion && question<=10" >Siguiente Pregunta</button>
+            <button @click="goResult" :disabled="!enableResult">Resultados</button>
         </div>
     </div>
 </template>

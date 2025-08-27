@@ -23,13 +23,14 @@ const localValues = ref([...props.values]);
 const localEnable = ref(props.enable);
 
 const updateTraitValue = (id, text, value) => {
-  console.log(`Updated ${text} (ID: ${id}) to ${value}`);
+  //console.log(`Updated ${text} (ID: ${id}) to ${value}`);
   localValues.value[id - 1] = value;
   localEnable.value = !localValues.value.includes(0);
-  console.log('Enable status:', localEnable.value);
-  console.log('Props values updated:', localValues.value);
-  console.log('Current group values:', props.names);
-  console.log('Local enable status:', localEnable.value);
+  //console.log('Enable status:', localEnable.value);
+  //console.log('Props values updated:', localValues.value);
+  //console.log('Current group values:', props.names);
+  //console.log('Local enable status:', localEnable.value);
+  validate();
 };
 
 const validate =()=> {
@@ -38,6 +39,7 @@ const validate =()=> {
   }
   let temp=[1,2,3,4]
   let cpValues = [...localValues.value];
+  console.log('Final before delete values:', cpValues);
   for (let index = 0; index < temp.length; index++) {
     let indexx=cpValues.indexOf(temp[index])
     if (indexx !== -1) {
@@ -55,6 +57,10 @@ const validate =()=> {
   });
   } else {
     console.log('There are duplicate values. Please ensure all values are unique.');
+    emit('update', {
+      values: localValues.value,
+      enable: false,
+    });
   }
 }
 
@@ -71,7 +77,6 @@ const validate =()=> {
           @update-value="updateTraitValue"
         />
         <br>
-        <button :disabled="!localEnable" @click="validate">Guardar</button>
     </div>
 </template>
 

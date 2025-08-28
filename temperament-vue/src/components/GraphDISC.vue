@@ -64,7 +64,7 @@ const chartOptions = {
   </div>
 
   <button @click="goBack">Volver a realizar cuestionario</button>
-  <button @click="goBack">Mis temperamentos</button>
+  <button @click="goBack">Caracteristicas de mis temperamentos</button>
 </template>
 
 <style scoped>

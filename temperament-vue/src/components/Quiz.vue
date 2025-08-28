@@ -3,8 +3,8 @@ import { ref , computed } from 'vue';
 import GroupCaracteristic from './GroupCaracteristic.vue';
 const emit = defineEmits(['continue', 'back']);
 
-const goNext = () => {
-  emit('continue');
+const goGraph = () => {
+  emit('continue', {disc: Totales.value});
 }
 
 const goBack = () => {
@@ -21,24 +21,24 @@ const enableResult = ref(false);
 
 
 const handleUpdate = ({ values, enable }) => {
-  console.log('Valores en el padre mandados del hijo:', values);
-  console.log('Enable en el padre mandados del hijo:', enable);
+  //console.log('Valores en el padre mandados del hijo:', values);
+  //console.log('Enable en el padre mandados del hijo:', enable);
   enableNextQuestion.value = enable;
   if (enable) {
     Sumas.value = [...values];
-    console.log('Sumas actualizadas temporales para sumar a totales:', Sumas.value);
+    //console.log('Sumas actualizadas temporales para sumar a totales:', Sumas.value);
   }
   else{
     Sumas.value = [0,0,0,0];
-    console.log('Sumas actualizadas reseteadas:', Sumas.value);
+    //console.log('Sumas actualizadas reseteadas:', Sumas.value);
   }
 };
 
 const goNextQuestion = () => {
-  console.log('Pregunta actual:', question.value);
+  //console.log('Pregunta actual:', question.value);
   if (question.value <= 11){
     Totales.value = Totales.value.map((total, index) => total + Sumas.value[index]);
-    console.log('Totales actualizados:', Totales.value);
+    //console.log('Totales actualizados:', Totales.value);
     enableNextQuestion.value = false;
     question.value++;
   }
@@ -62,7 +62,7 @@ const buttonText = computed(() => {
     <div class="container">
         <div class="header">
           <h1>Cuestionario</h1>
-          <h2>temperamento</h2>
+          <h2>Temperamento</h2>
         </div>
         <div class="quiz-container">
 
@@ -165,7 +165,7 @@ const buttonText = computed(() => {
         <div class="button-container">
             <button @click="goBack">Atras</button>
             <button @click="goNextQuestion" :disabled="!enableNextQuestion" >{{ buttonText }}</button>
-            <button @click="goResult" :disabled="!enableResult">Grafica</button>
+            <button @click="goGraph" :disabled="!enableResult">Grafica</button>
         </div>
     </div>
 </template>
@@ -195,13 +195,12 @@ const buttonText = computed(() => {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 20px;
+
 }
 
 @media (min-width: 768px) {
-  .statement-wrapper {
-    flex-direction: column; /* En pantallas grandes, coloca los elementos en una fila */
-    justify-content: space-between; /* Distribuye el espacio entre los elementos */
-    align-items: flex-start; /* Alinea los elementos en la parte superior */
+  .container{
+    width: 25rem;
   }
 
 }

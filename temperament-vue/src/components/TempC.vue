@@ -5,15 +5,15 @@ import { ref } from 'vue';
 const cards = ref([
     {
         title: 'PAUTAS PARA LA SUPERACIÓN',
-        content: 'Empezar a utilizar palabras como: gracias, por favor, permiso, buenos días- Rescatar lo positivo de todo lo que se ha logrado o alcanzado. Invitar a otros para planear o hacer cualquier actividad por más insignificante que sea; hacer las cosas por amor a los demás, y callarse y aprender a escuchar. Creer que todos podemos aprender, unir el estimulo a la exigencia.',
+        content: 'Buscar salir de si mismo e ir al encuentro de los demás. Cultivar el pensamiento positivo y la confianza, vivir el presente dejando en el pasado ese mundo irreal. Aprender a perdonar y a reírse de si mismo, confía en los demás.',
     },
     {
         title: 'Cualidades',
-        content: 'El señor colérico es un activista práctico, productivo e independiente. Para él todo en la vida es útil. Posee una recia voluntad. Su mente rebosa de ideas, proyecto y objetivos. Por lo general lleva a buen fin lo que se propone. Es extrovertido, como el sanguíneo, pero a un grado menor. Se desenvuelve mejor en un medio activo y ratador. Los coléricos son buenos supervisores, generales, constructores y organizadores.',
+        content: 'Cuenta con una mente privilegiada y una tremenda capacidad para experimentar una gama completa de emociones. Es perfeccionista, lo entusiasman las bellas artes, es profundamente analítico. Fiel amigo, no le gusta ocupar el primer lugar en la escena. Trabaja para que las cosas salgan corectamente y se concentra en los detalles. Es precavido. Se desenvuelve mejor en un ambiente estructurado y organizado. Los melancólicos son buenos artistas, músicos, inventores, científicos.',
     },
     {
         title: 'Debilidades',
-        content: 'Es autosuficiente, impetuoso, propenso a ser duro o cruel. Nadie tan cortante o sarcástico como el colérico. Rehúyen al trabajo minucioso, preciso y detallado.',
+        content: 'Inclinado hacia lo negativo, exagera sus tendencias pesimistas. Es inflexible, e indeciso.',
     },
 ]);
 
@@ -37,13 +37,14 @@ const nextCard = () => {
 
 <template>
     <div id="tempD">
-        <h1>Colérico / Dominante</h1>
+        <h1>Concienzudo / Melancólico</h1>
+
 
         <div id="notc">
-            <p> <u><b>Necesidad:</b></u> de controlar a las personas</p>
-            <p> <u><b>Orientación:</b></u> a tareas-resultados</p>
-            <p> <u><b>Temor:</b></u> a que lo exploten o dominen</p>
-            <p> <u><b>Comunicación:</b></u> directiva</p>
+            <p> <u><b>Necesidad:</b></u> de perfección</p>
+            <p> <u><b>Orientación:</b></u> a calidad</p>
+            <p> <u><b>Temor:</b></u> a que critiquen su trabajo</p>
+            <p> <u><b>Comunicación:</b></u> indirecta</p>
         </div>
        
         <div id="card-container">
@@ -60,13 +61,9 @@ const nextCard = () => {
 
     </div>
 
-
-
-
 </template>
 
 <style scoped>
-
 
 /* Estilos para el contenedor principal */
 .tempD {

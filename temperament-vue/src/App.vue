@@ -4,7 +4,6 @@ import DescriptionView from './components/DescriptionView.vue';
 import InstructionView from './components/InstructionView.vue';
 import Quiz from './components/Quiz.vue';
 import GraphDISC from './components/GraphDISC.vue';
-import TempD from './components/TempD.vue';
 
 const currentView= ref('description');
 
@@ -44,10 +43,6 @@ const discData = ref([0,0,0,0]);
     v-if="currentView === 'graph'"
     @back="changeView('quiz')"
     v-bind:DISC="discData"
-  />
-
-  <TempD
-    v-if="currentView === 'tempD'"
   />
 
 </template>

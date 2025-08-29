@@ -2,6 +2,10 @@
 import { ref } from 'vue';
 import { Bar, Line } from 'vue-chartjs';
 import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale , LineElement, PointElement} from 'chart.js';
+import TempD from './TempD.vue';
+import TempI from './TempI.vue';
+import TempS from './TempS.vue';
+import TempC from './TempC.vue';
 const emit = defineEmits(['continue', 'back']);
 
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale, LineElement, PointElement);
@@ -51,20 +55,29 @@ const chartOptions = {
 </script>
 
 <template>
-  <h1>Perfil DISC</h1>
-  <Bar :data="chartData" :options="chartOptions" />
-
   <div>
+    <div>
+        <h1>Perfil DISC</h1>
+        <Bar :data="chartData" :options="chartOptions" />
 
-    <p>Mis temperamentos predominantes son:</p>
-      <h3 v-if="props.DISC[0]>30">Dominante: {{ props.DISC[0] }}</h3>
-      <h3 v-if="props.DISC[1]>30">Influyente: {{ props.DISC[1] }}</h3>
-      <h3 v-if="props.DISC[2]>30">Solido: {{ props.DISC[2] }}</h3>
-      <h3 v-if="props.DISC[3]>30">Concienzudo: {{ props.DISC[3] }}</h3>
+        <div>
+          <p>Mis temperamentos predominantes son:</p>
+            <h3 v-if="props.DISC[0]>30">Dominante: {{ props.DISC[0] }}</h3>
+            <h3 v-if="props.DISC[1]>30">Influyente: {{ props.DISC[1] }}</h3>
+            <h3 v-if="props.DISC[2]>30">Solido: {{ props.DISC[2] }}</h3>
+            <h3 v-if="props.DISC[3]>30">Concienzudo: {{ props.DISC[3] }}</h3>
+        </div>
+
+        <button @click="goBack">Volver a realizar cuestionario</button>
+    </div>
+    <div>
+      <TempD v-if="props.DISC[0]>30" />
+      <TempI v-if="props.DISC[1]>30" />
+      <TempS v-if="props.DISC[2]>30" />
+      <TempC v-if="props.DISC[3]>30" />
+    </div>
+    
   </div>
-
-  <button @click="goBack">Volver a realizar cuestionario</button>
-  <button @click="goBack">Caracteristicas de mis temperamentos</button>
 </template>
 
 <style scoped>

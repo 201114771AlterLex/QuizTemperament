@@ -5,15 +5,15 @@ import { ref } from 'vue';
 const cards = ref([
     {
         title: 'PAUTAS PARA LA SUPERACIÓN',
-        content: 'Empezar a utilizar palabras como: gracias, por favor, permiso, buenos días- Rescatar lo positivo de todo lo que se ha logrado o alcanzado. Invitar a otros para planear o hacer cualquier actividad por más insignificante que sea; hacer las cosas por amor a los demás, y callarse y aprender a escuchar. Creer que todos podemos aprender, unir el estimulo a la exigencia.',
+        content: 'Tener más confianza en si mismo. Profundizar sus amistades, utilizar agenda y anotar lo que debe hacer; hablar de si mismo siendo transparente. Mantener sus cosas ordenadas, aprender a escuchar a los demás, pensar antes de hablar y actuar. No dejarse llevar por sus emociones, tener objetivos claros antes de empezar algo.',
     },
     {
         title: 'Cualidades',
-        content: 'El señor colérico es un activista práctico, productivo e independiente. Para él todo en la vida es útil. Posee una recia voluntad. Su mente rebosa de ideas, proyecto y objetivos. Por lo general lleva a buen fin lo que se propone. Es extrovertido, como el sanguíneo, pero a un grado menor. Se desenvuelve mejor en un medio activo y ratador. Los coléricos son buenos supervisores, generales, constructores y organizadores.',
+        content: 'Es la persona cálida, amigable, expresiva, que atrae a la gente como imán. Es un excelente charlista, optimista "El alma de la fiesta". Es generoso, compasivo y se adapta con extraordinaria facilidad, a las circunstancias ambientales y a las necesidades de los demás. Se relaciona con las personas mediante la persuasión verbal. Trabaja mejor en un ambiente favorable y amistoso. Los sanguíneoas son buenos vendedores y oradores.',
     },
     {
         title: 'Debilidades',
-        content: 'Es autosuficiente, impetuoso, propenso a ser duro o cruel. Nadie tan cortante o sarcástico como el colérico. Rehúyen al trabajo minucioso, preciso y detallado.',
+        content: 'Es emocional, inestable, explosivo, inquieto, egoísta. Le cuesta dar los toques finales a las tareas. Es inseguro y temeroso.',
     },
 ]);
 
@@ -37,13 +37,14 @@ const nextCard = () => {
 
 <template>
     <div id="tempD">
-        <h1>Colérico / Dominante</h1>
+        <h1>Influyente / Sanguíneo</h1>
+
 
         <div id="notc">
-            <p> <u><b>Necesidad:</b></u> de controlar a las personas</p>
-            <p> <u><b>Orientación:</b></u> a tareas-resultados</p>
-            <p> <u><b>Temor:</b></u> a que lo exploten o dominen</p>
-            <p> <u><b>Comunicación:</b></u> directiva</p>
+            <p> <u><b>Necesidad:</b></u> de influir en las personas</p>
+            <p> <u><b>Orientación:</b></u> a relaciones sociales</p>
+            <p> <u><b>Temor:</b></u> a que lo rechacen</p>
+            <p> <u><b>Comunicación:</b></u> directa(persuaden)</p>
         </div>
        
         <div id="card-container">
@@ -66,7 +67,6 @@ const nextCard = () => {
 </template>
 
 <style scoped>
-
 
 /* Estilos para el contenedor principal */
 .tempD {

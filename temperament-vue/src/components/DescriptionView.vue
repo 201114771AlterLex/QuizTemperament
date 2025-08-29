@@ -16,6 +16,7 @@ const goNext = () => {
         <p>
           Temperamento es la fuerza que impulsa a una persona y refleja ciertas características de ella.
           <br />
+          <br>
           En algunas personas predomina la ira como fuerza impulsadora y en otras el temor. En cualquier caso, los extremos pueden ser inconvenientes.
         </p>
         <p>
@@ -61,7 +62,7 @@ h1 {
 
 /* Estilo para el párrafo */
 .text-content p {
-  line-height: 1.4rem; /* Mejora la legibilidad del texto */
+  line-height: 1.6rem; /* Mejora la legibilidad del texto */
   font-size: 2rem; /* Tamaño de fuente base */
 }
 
@@ -87,7 +88,7 @@ h1 {
 
   /* Ajusta el tamaño de la fuente para que el texto sea más grande en computadoras */
   .text-content p {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
   }
 }
 </style>

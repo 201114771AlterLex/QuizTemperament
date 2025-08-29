@@ -1,3 +1,4 @@
+
 <script setup>
 import { ref } from 'vue';
 
@@ -5,15 +6,15 @@ import { ref } from 'vue';
 const cards = ref([
     {
         title: 'PAUTAS PARA LA SUPERACIÓN',
-        content: 'Empezar a utilizar palabras como: gracias, por favor, permiso, buenos días- Rescatar lo positivo de todo lo que se ha logrado o alcanzado. Invitar a otros para planear o hacer cualquier actividad por más insignificante que sea; hacer las cosas por amor a los demás, y callarse y aprender a escuchar. Creer que todos podemos aprender, unir el estimulo a la exigencia.',
+        content: 'Ponerse objetivos altos y fijarse un tiempo para alcanzarlos. Fortalecer su voluntad desarrollando hábitos que le permitan vencer su pasividad y conformidad: Involucrarse en grupos que le ayuden al servicio de los demás, balancear su mente con su corazón cálido. Escuchar con apertura de lo que los demás dicen, sacando provecho de todo lo positivo. Decir lo que siente y demostrar con detalle su afecto.',
     },
     {
         title: 'Cualidades',
-        content: 'El señor colérico es un activista práctico, productivo e independiente. Para él todo en la vida es útil. Posee una recia voluntad. Su mente rebosa de ideas, proyecto y objetivos. Por lo general lleva a buen fin lo que se propone. Es extrovertido, como el sanguíneo, pero a un grado menor. Se desenvuelve mejor en un medio activo y ratador. Los coléricos son buenos supervisores, generales, constructores y organizadores.',
+        content: 'Es tranquilo, sereno, alegre, se lleva personalmente bien con los demás. Es eficiente, conservador, confiable e ingenioso, con una mentalidad definidamente práctica. Es cortés en todo tipo de tarea o responsabilida. Se desarrolla sustentando y cooperando con otros. Se desenvuelve mejor en medios armoniosos y de apoyo. Los flemáticos, son buenos maestros, médicos, científicos, comediantes y editores de libros.',
     },
     {
         title: 'Debilidades',
-        content: 'Es autosuficiente, impetuoso, propenso a ser duro o cruel. Nadie tan cortante o sarcástico como el colérico. Rehúyen al trabajo minucioso, preciso y detallado.',
+        content: 'Falta de motivación, ve la vida como si fuera un espectador para evitar "verse envuelto". Tiende a ser terco, mezquino, no revela sus sentimientos, es indeciso. Detesta los cambios y no se enfrenta.',
     },
 ]);
 
@@ -37,13 +38,13 @@ const nextCard = () => {
 
 <template>
     <div id="tempD">
-        <h1>Colérico / Dominante</h1>
-
+        <h1>Sólido / Flemático</h1>
         <div id="notc">
-            <p> <u><b>Necesidad:</b></u> de controlar a las personas</p>
-            <p> <u><b>Orientación:</b></u> a tareas-resultados</p>
-            <p> <u><b>Temor:</b></u> a que lo exploten o dominen</p>
-            <p> <u><b>Comunicación:</b></u> directiva</p>
+
+            <p> <u><b>Necesidad:</b></u> de estabilidad</p>
+            <p> <u><b>Orientación:</b></u> a procesos</p>
+            <p> <u><b>Temor:</b></u> perder estabilidad</p>
+            <p> <u><b>Comunicación:</b></u> indirecta, recibe información</p>
         </div>
        
         <div id="card-container">
@@ -66,7 +67,6 @@ const nextCard = () => {
 </template>
 
 <style scoped>
-
 
 /* Estilos para el contenedor principal */
 .tempD {

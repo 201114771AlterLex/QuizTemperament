@@ -1,14 +1,14 @@
 <script setup>
 import { ref } from 'vue';
 import { Bar, Line } from 'vue-chartjs';
-import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale , LineElement, PointElement} from 'chart.js';
+import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale , LineElement, PointElement , LineController, BarController } from 'chart.js';
 import TempD from './TempD.vue';
 import TempI from './TempI.vue';
 import TempS from './TempS.vue';
 import TempC from './TempC.vue';
 const emit = defineEmits(['continue', 'back']);
 
-ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale, LineElement, PointElement);
+ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale, LineElement, PointElement, LineController, BarController );
 
 const goBack = () => {
   emit('back');
